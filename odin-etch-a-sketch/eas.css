@@ -1,0 +1,14 @@
+.flexbox{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0px;
+    width:600px;
+    height:600px;
+    background-color: blue;
+}
+.square{
+    height:3.5px;
+    width:3.5px;
+    border: 1px solid black;
+    background-color: white;
+}
