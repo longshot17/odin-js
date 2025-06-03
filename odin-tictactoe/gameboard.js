@@ -1,8 +1,5 @@
-const playerOne = createPlayer("X")
-const playerTwo = createPlayer("O")
-
-const  gameBoard = (function(playerOne, playerTwo){
-    activePlayer = playerOne
+export function  createGameBoard (playerOne, playerTwo){
+    let activePlayer = playerOne
     let boardState = new Array(9).fill("");
     let markers = new Array(9).fill("");
     const winPatterns = [
@@ -68,7 +65,7 @@ const  gameBoard = (function(playerOne, playerTwo){
             if(boardState[winPatterns[i][0]] != ""){
                 if(boardState[winPatterns[i][0]] == boardState[winPatterns[i][1]] && boardState[winPatterns[i][1]] == boardState[winPatterns[i][2]]) {
                     swapActive()
-                    winner = activePlayer
+                    let winner = activePlayer
                     gameOver(winner)
                     //implement game over handling
                 }
@@ -76,6 +73,7 @@ const  gameBoard = (function(playerOne, playerTwo){
         }
         if(!boardState.includes("")){
             alert("tie") // implement tie handling
+            gameOver()
         }
     }
 
@@ -89,66 +87,89 @@ const  gameBoard = (function(playerOne, playerTwo){
     }
 
     function resetBoard(){
-        for(i = 0; i < boardState.length; i++){
+        for(let i = 0; i < boardState.length; i++){
             boardState[i] = ""
         }
         refreshBoard()
     }
 
-    function gameOver(winner){
-        winner.giveWin()
-        updateScore()
-        refreshBoard()
+    function gameOver(winner = null){
+        if(winner != null){
+            winner.giveWin()
+            updateScore()
+        }
+        resetBoard()
     }
 
     function updateScore(){
-        score1 = document.querySelector(".p1score")
-        score2 = document.querySelector(".p2score")
-        score1.textContent = "Player One Score: " + playerOne.getWins()
-        score2.textContent = "Player Two Score: " + playerTwo.getWins()
+        let score1 = document.querySelector(".p1score")
+        let score2 = document.querySelector(".p2score")
 
+        if(playerOne.getName() != "none" & playerTwo.getName() != "none"){
+            score1.textContent = playerOne.getName() + playerOne.getWins()
+            score2.textContent =  playerTwo.getName()  + playerTwo.getWins()
+        }
+        else{
+            score1.textContent = "Player One Score: " + playerOne.getWins()
+            score2.textContent =  "Player Two Score: "  + playerTwo.getWins()
+        }
+        
     }
 
-    return {getBoard, makeMove, resetBoard}
-})(playerOne, playerTwo);
+    function getPlayers(){
+        let players = new Array(2);
+        players[0] = playerOne;
+        players[1] = playerTwo;
+        return players
+    }
 
-
-
-function createPlayer(marker){
-    const mark = marker
-    let wins = 0
-
-    const getMarker = () => mark;
-    const giveWin = () => wins++;
-    const getWins = () => wins;
-
-    return{getMarker,giveWin,getWins}
-}
-
-
-
-
-
-
-
-
-//global to stop when game is completed 
-
-function runGame(){
-    const p1Name = prompt("Enter name", "name")
-    alert("name")
-    const playerOne = createPlayer("X")
-    const playerTwo = createPlayer("O")
-    let activePlayer = playerOne
-
-
-    gameBoard.resetBoard()
-
-}
-
-const  gameSession = (function(playerOne, playerTwo){
+    const interfaceButtons = (function (){
+        let changeNameBtn = document.querySelector("#name-button")
+        let resetBtn = document.querySelector("#reset-button")
+        let nameSubmitBtn = document.querySelector("#name-change-submit")
+        let nameForm = document.querySelector("#name-form")
+     
+        changeNameBtn.addEventListener("click", () => {
+            //make name change form appear
+            nameForm.classList.add("active");   
+        })
     
-})(playerOne, playerTwo);
+        resetBtn.addEventListener("click", () => {
+            resetBoard()
+        })
+        
+        nameSubmitBtn.addEventListener("click", () => {
+            const player1Name = document.querySelector("#p1Name").value;
+            const player2Name = document.querySelector("#p2Name").value;
+            const message_div = document.querySelector("#message-div");
+            if(player1Name != "" & player2Name != ""){
+                playerOne.setName(player1Name)
+                playerTwo.setName(player2Name)
+                document.querySelector("#p1Name").value = "";
+                document.querySelector("#p2Name").value = "";
+                let score1 = document.querySelector(".p1score")
+                let score2 = document.querySelector(".p2score")
+                score1.textContent = `${player1Name}: ${playerOne.getWins()}`
+                score2.textContent = `${player2Name}: ${playerTwo.getWins()}`
+
+                nameForm.classList.remove("active");   
+                message_div.classList.remove("active");
+            }
+            else{
+                message_div.classList.add("active");
+            }
+
+            
+        })
+
+    })();
+
+
+    return {getBoard, makeMove, resetBoard, getPlayers}
+}
+
+
+
 
 
 

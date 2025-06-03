@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="tictactoe.css">
-    <script src = "gameboard.js" defer></script>
+    <script type="module" src = "gameSession.js" defer></script>
 </head>
 <body>
 
@@ -19,10 +19,13 @@
             <button id = "name-button">Change Names</button>
             <button id = "reset-button">Reset Game</button>
         </div>
-        <div class = "name-change">
-            <input type="text" id="player1" placeholder="Player 1 Name" required />
-            <input type="text" id="player2" placeholder="Player 2 Name" required />
-            <button id = "name-change-btn">Submit</button>
+        <div id = "name-form">
+            <input type="text" id="p1Name" placeholder="Player 1 Name" required />
+            <input type="text" id="p2Name" placeholder="Player 2 Name" required />
+            <button id = "name-change-submit">Submit</button>
+        </div>
+        <div id = "message-div">
+            <p id = "input-message">Both Players Need a Name!</p>    
         </div>
 
     </div>
