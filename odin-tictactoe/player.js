@@ -1,6 +1,6 @@
-export function createPlayer(marker){
+export function createPlayer(marker, Name){
     const mark = marker
-    let name = "none"
+    let name = Name
     let wins = 0
 
     const getMarker = () => mark;

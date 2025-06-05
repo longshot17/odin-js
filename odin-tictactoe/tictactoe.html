@@ -12,27 +12,29 @@
     <h1 class = "header">Tic Tac Toe</h1>
     <div class = "interface">
         <div class = "scoreboard">
-            <p class = "p1score">Player One Score: 0</p>
-            <p class = "p2score">Player Two Score: 0</p>    
+            <p class = "score" id = "p1score">Player One Score: 0</p>
+            <p class = "score" id = "p2score">Player Two Score: 0</p>    
         </div>
         <div class = "game-buttons">
             <button id = "name-button">Change Names</button>
             <button id = "reset-button">Reset Game</button>
         </div>
         <div id = "name-form">
-            <input type="text" id="p1Name" placeholder="Player 1 Name" required />
-            <input type="text" id="p2Name" placeholder="Player 2 Name" required />
-            <button id = "name-change-submit">Submit</button>
-        </div>
-        <div id = "message-div">
-            <p id = "input-message">Both Players Need a Name!</p>    
+                <input type="text" id="p1Name" placeholder="Player 1 Name" required />
+                <input type="text" id="p2Name" placeholder="Player 2 Name" required />
+                <button id = "name-change-submit">Submit</button>
         </div>
 
     </div>
 
-    <div class = "gameboard">
-        
+    <div class = "gameboardContainer">
+        <div class = "gameboard">
+        </div>
     </div>
+    <div class = "gameovertext-div">
+        <p id = "gameover-text"></p>
+    </div>
+
 
 </body>
 </html>
