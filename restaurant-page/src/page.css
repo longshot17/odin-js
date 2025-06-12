@@ -1,0 +1,97 @@
+header{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+h1, .item, .description, .hours, .contentText, .contactInfo{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+button{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100px;
+    height:40px;
+}
+
+#content{
+    position: relative;
+    width:90vh;
+
+}
+
+
+.text{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.contentDiv{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: red;
+    margin-bottom: 20px;
+   
+}
+
+#contactHeader{
+    align-self: flex-start;
+    text-align: left;
+    margin-left:100px;
+}
+
+.contactInfo{
+    font-size:18px; 
+    margin:5px;
+}
+
+#infoDiv{
+    margin-top:-15px;
+    display: flex;
+    flex-direction: column;
+    gap:-20px;
+}
+
+body {
+    display: flex;
+    justify-content: center;  
+    align-items: center;            
+    flex-direction: column;                 
+  }
+
+.image{
+    width: 350px;
+    height: auto;
+    display: block;
+    margin: 16px auto;
+}
+
+.foodType{
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+
+.item{
+    font-size:20px;
+    margin-bottom:-2px;
+}
+
+.description{
+    margin: 10px 40px;
+}  
+
+#hoursDiv{
+    
+}
+
+.contentText{
+    font-size:18px;
+    margin: 20px 20px;
+}
+
+#coffee, #curds{
+    margin-bottom:20px;
+}
