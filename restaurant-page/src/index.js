@@ -1,7 +1,7 @@
 import {getHome} from "./homePage.js"
 import {getMenu} from "./menuPage.js"
 import {getAbout} from "./aboutPage.js"
-import "./page.css"
+import "./index.css"
 
 const homeBtn = document.querySelector("#home-btn")
 const menuBtn = document.querySelector("#menu-btn")
